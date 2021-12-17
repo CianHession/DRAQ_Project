@@ -16,7 +16,7 @@ const Schema = mongoose.Schema;
 
 //Make single page app now
 app.use(express.static(path.join(__dirname, '../build')));
-app.use('static', express.static(path.join(__dirname, 'build/static')));
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
 
 
 //Item Schema
@@ -47,7 +47,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
-    res.send('Hello World!')
+    res.redirect('/api/itemsnode')
 })
 
 app.get('/api/items', (req, res) => {
@@ -111,7 +111,7 @@ ItemModel.deleteOne({_id:req.params.id},
 
 //SendFile for sinlge page app
 app.get('*', (req,res)=>{
-    res.SendFile(path.join(__dirname+'/../build.index.html'));
+    res.sendFile(path.join(__dirname+'/../build/index.html'));
 })
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

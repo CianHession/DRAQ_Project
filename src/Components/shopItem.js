@@ -45,6 +45,7 @@ class ShopItem extends Component {
                 <Link to={'/updateitem/' + this.props.myItem._id} className="btn btn-warning">Edit Item</Link>
                 {/* Button for Deletion*/}
                 <Button variant="danger" onClick={this.DeleteItem}>Delete</Button>
+                <br/>
             </div>
         );
     }
